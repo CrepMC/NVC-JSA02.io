@@ -25,4 +25,4 @@ const car = {
     }
 };
 
-console.log(Math.random(Math.floor(Math.random() * 100) + 1))
+console.log(Math.random(Math.floor(Math.random() * 100) + 1));
