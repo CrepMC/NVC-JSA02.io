@@ -9,11 +9,11 @@
 <body>
     <div class="navbar">
       <a  href="#" class="logo">
-        <img src="./img/gamejolt_text_logo.svg" id="text" alt="GameJolt Logo">
-        <img src="./img/gamejolt_img_logo.svg" id="img" alt="GameJolt Logo">
+        <img draggable="false" src="./img/gamejolt_text_logo.svg" id="text" alt="GameJolt Logo">
+        <img draggable="false" src="./img/gamejolt_img_logo.svg" id="img" alt="GameJolt Logo">
       </a>
         <div class="menu">
-            <a href="#"><i class="fas fa-compass"></i> DISCOVER</a>
+            <a href="#"><i class="fas fa-compass"></i>DISCOVER</a>
             <a href="#">STORE</a>
             <a href="#"><i class="fas fa-ellipsis-v"></i></a>
         </div>
@@ -21,8 +21,17 @@
         <div class="user-controls">
             <a href="#"><i class="fas fa-bell"></i></a>
             <a href="#"><i class="fas fa-user-friends"></i></a>
-            <a href="#"><img src="./img/profile.png" alt="User Image"></a>
+            <button type="button" id="click-popup"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
+            <button type="button" id="click-delete-popup"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
         </div>
+    </div>
+    <div class="popup" id="popup">
+        <a href="#"><img draggable="false" src="./img/profile.png" alt="User Image"></a>
+        <hr width="100px" color="#b1b1b1">
+        <a href="#"><i class="fas fa-user-friends"></i>   Friend</a>
+        <a href="#"><i class="fas fa-bell"></i>   Notification</a>
+        <a href="#"><i class="fas fa-cog"></i>   Setting</a>
+        <a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i>   Log out</a>
     </div>
     <div class="sidebar">
       <div class="icon" title="Chat and Friend">
@@ -41,13 +50,13 @@
           <i class="fas fa-clipboard-list"></i>
           <div class="tooltip">Quest</div>
       </div>
+      <div class="icon" title="Joltydex">
+        <i class="fas fa-watch"></i>
+        <div class="tooltip">Joltydex</div>
+        </div>
       <div class="icon" title="Game Library">
           <i class="fas fa-book"></i>
           <div class="tooltip">Game Library</div>
-      </div>
-      <div class="icon" title="Joltydex">
-          <i class="fas fa-watch"></i>
-          <div class="tooltip">Joltydex</div>
       </div>
       <div class="separator"></div>
       <div class="icon create-community" title="Create a Community">
@@ -55,5 +64,6 @@
           <div class="tooltip">Create a Community</div>
       </div>
   </div>
+  <script src="app.js"></script>
 </body>
 </html>
