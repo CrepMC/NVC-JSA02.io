@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameJolt</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/discover.css">
+    <link rel="stylesheet" href="./css/store.css">
 </head>
 <body>
     <div class="navbar">
-      <a  href="#" class="logo">
-        <img draggable="false" src="./img/gamejolt_text_logo.svg" id="text" alt="GameJolt Logo">
-        <img draggable="false" src="./img/gamejolt_img_logo.svg" id="img" alt="GameJolt Logo">
-      </a>
+        <a href="#" class="logo">
+            <img draggable="false" src="./img/gamejolt_text_logo.svg" id="text" alt="GameJolt Logo">
+            <img draggable="false" src="./img/gamejolt_img_logo.svg" id="img" alt="GameJolt Logo">
+        </a>
         <div class="menu">
             <a href="#"><i class="fas fa-compass"></i>DISCOVER</a>
             <a href="#">STORE</a>
@@ -26,44 +29,85 @@
         </div>
     </div>
     <div class="popup" id="popup">
-        <a href="#"><img draggable="false" src="./img/profile.png" alt="User Image"></a>
+        <button class="change-acc-img"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
         <hr width="100px" color="#b1b1b1">
-        <a href="#"><i class="fas fa-user-friends"></i>   Friend</a>
-        <a href="#"><i class="fas fa-bell"></i>   Notification</a>
-        <a href="#"><i class="fas fa-cog"></i>   Setting</a>
-        <a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i>   Log out</a>
+        <a href="#"><i class="fas fa-user-friends"></i> Friend</a>
+        <a href="#"><i class="fas fa-bell"></i> Notification</a>
+        <a href="#"><i class="fas fa-cog"></i> Setting</a>
+        <a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Log out</a>
     </div>
     <div class="sidebar">
-      <div class="icon" title="Chat and Friend">
-          <i class="fas fa-user-friends"></i>
-          <div class="tooltip">Chat and Friend</div>
-      </div>
-      <div class="icon" title="Shop">
-          <i class="fas fa-store"></i>
-          <div class="tooltip">Shop</div>
-      </div>
-      <div class="icon" title="Backpack">
-          <i class="fa-solid fa-briefcase"></i>
-          <div class="tooltip">Backpack</div>
-      </div>
-      <div class="icon" title="Quest">
-          <i class="fas fa-clipboard-list"></i>
-          <div class="tooltip">Quest</div>
-      </div>
-      <div class="icon" title="Joltydex">
-        <i class="fas fa-watch"></i>
-        <div class="tooltip">Joltydex</div>
+        <div class="icon" title="Chat and Friend">
+            <i class="fas fa-user-friends"></i>
+            <div class="tooltip">Chat and Friend</div>
         </div>
-      <div class="icon" title="Game Library">
-          <i class="fas fa-book"></i>
-          <div class="tooltip">Game Library</div>
-      </div>
-      <div class="separator"></div>
-      <div class="icon create-community" title="Create a Community">
-          <i class="fas fa-plus"></i>
-          <div class="tooltip">Create a Community</div>
-      </div>
-  </div>
-  <script src="app.js"></script>
+        <div class="icon" title="Shop">
+            <i class="fas fa-store"></i>
+            <div class="tooltip">Shop</div>
+        </div>
+        <div class="icon" title="Backpack">
+            <i class="fa-solid fa-briefcase"></i>
+            <div class="tooltip">Backpack</div>
+        </div>
+        <div class="icon" title="Quest">
+            <i class="fas fa-clipboard-list"></i>
+            <div class="tooltip">Quest</div>
+        </div>
+        <div class="icon" title="Game Library">
+            <i class="fas fa-book"></i>
+            <div class="tooltip">Game Library</div>
+        </div>
+        <div class="separator"></div>
+        <div class="icon create-community" title="Create a Community">
+            <i class="fas fa-plus"></i>
+            <div class="tooltip">Create a Community</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="main">
+            <div class="account-game-status">
+                <div class="charge">
+                    <div class="charge-text">
+                        <div class="charge-text-title">
+                            Charge
+                        </div>
+                    </div>
+                    <div class="charge-bar">
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                        <div class="charge-ball"></div>
+                    </div>
+                </div>
+                <div class="daily-quest">
+
+                </div>
+                <div class="invite-link">
+                    <div class="invite-link-text">
+                        <div class="invite-link-text-title">
+                            Invite Link
+                        </div>
+                        <div class="invite-link-text-content">
+                            <input type="text" class="invite-link-text-content-input" value="https://www.gamejolt.com/invite/123456">
+                        </div>
+                    </div>
+                    <div class="invite-link-button">
+                        <button type="button" class="invite-link-button-copy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="discover">
+
+        </div>
+        <div class="store">
+
+        </div>
+    </div>  
+    <script src="./js/app.js"></script>
 </body>
 </html>

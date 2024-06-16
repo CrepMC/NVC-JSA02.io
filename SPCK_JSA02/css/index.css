@@ -1,0 +1,94 @@
+.content .main {
+    margin-left: 70px;
+    padding: 30px 28px;
+    width: 270px;
+}
+
+.content .main .account-game-status .invite-link {
+    width: 260px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.content .main .account-game-status .invite-link .invite-link-text .invite-link-text-content input {
+    width: 240px;
+    margin-left: 10px;
+    margin-top: 15px;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.content .main .account-game-status .invite-link .invite-link-text .invite-link-text-content input:focus {
+    outline: none;
+}
+
+.content .main .account-game-status .invite-link .invite-link-button button {
+    background: transparent;
+    text-align: center;
+    border: solid 2px #fff;
+    margin: 25px 15px 0;
+    width: 250px;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 20px 20px 20px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content .main .account-game-status .invite-link .invite-link-button button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.content .main .account-game-status .invite-link .invite-link-text .invite-link-text-content button:focus {
+    outline: none;
+}
+
+.content .main .account-game-status .charge {
+    width: 270px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.content .main .account-game-status .charge .charge-bar {
+    width: 240px;
+    margin-left: 10px;
+    margin-top: 15px;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    display: flex;
+}
+
+.content .main .account-game-status .charge .charge-bar .charge-ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #9dff00;
+    margin: 0 5px;
+}
