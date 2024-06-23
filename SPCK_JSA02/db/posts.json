@@ -1,50 +1,15 @@
 [
     {
-        "name": "",
-        "userName": "",
-        "timePosted": "",
-        "background": "",
-        "img": "",
-        "content": "",
-        "supporter": "",
-        "icons":[
-            "icon1",
-            "icon2",
-            "icon3",
-            "icon4",
-            "icon5",
-            "icon6",
-            "icon7",
-            "icon8",
-            "icon9",
-            "icon10",
-            "icon11",
-            "icon12",
-            "icon13",
-            "icon14",
-            "icon15",
-            "icon16",
-            "icon17",
-            "icon18",
-            "icon19",
-            "icon20",
-            "icon21",
-            "icon22",
-            "icon23",
-            "icon24",
-            "icon25",
-            "icon26",
-            "icon27",
-            "icon28",
-            "icon29",
-            "icon30",
-            "icon31",
-            "icon32",
-            "icon33",
-            "icon34"
-        ]
-    },
-    {
-        
+      "nickname": "User Nickname",
+      "username": "@nahnh",
+      "timePosted": "2 hours ago",
+      "postImg": "https://via.placeholder.com/600x400",
+      "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
+      "supporters": ["Alice", "Bob", "Charlie"],
+      "stickers": ["🔥", "💯", "🚀"],
+      "tags": ["#tag1", "#tag2", "#tag3"],
+      "likes": 150,
+      "comments": 45
     }
-]
+  ]
+  

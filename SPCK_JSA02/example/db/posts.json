@@ -1,0 +1,14 @@
+[
+    {
+      "nickname": "User Nickname",
+      "username": "@nahnh",
+      "timePosted": "2 hours ago",
+      "postImg": "https://via.placeholder.com/600x100",
+      "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
+      "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+      "stickers": ["../img/stickers/10-pwkhwvdr-v4.png", "../../SPCK_JSA02/img/stickers/53-kxcu2ca5-v4.png", "../../SPCK_JSA02/img/stickers/53-kxcu2ca5-v4.png"],
+      "tags": ["tag1", "tag2", "tag3"],
+      "likes": 150,
+      "comments": 45
+    }
+  ]
