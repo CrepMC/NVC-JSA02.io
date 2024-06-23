@@ -24,13 +24,14 @@
         <div class="user-controls">
             <a href="#"><i class="fas fa-bell"></i></a>
             <a href="#"><i class="fas fa-user-friends"></i></a>
-            <button type="button" id="click-popup"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
-            <button type="button" id="click-delete-popup"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
+            <button type="button" id="click-popup"><img id="profile-popup" draggable="false" src="./img/profile.png" alt="User Image"></button>
+            <button type="button" id="click-delete-popup"><img id="delete-popup" draggable="false" src="./img/profile.png" alt="User Image"></button>
         </div>
     </div>
     <div class="popup" id="popup">
-        <button class="change-acc-img"><img draggable="false" src="./img/profile.png" alt="User Image"></button>
+        <button class="change-acc-img"><img draggable="false" src="./img/profile.png" alt="User Image" id="profileImage"></button>
         <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <span id="popupMessage"></span>
         <hr width="100px" color="#b1b1b1">
         <a href="#"><i class="fas fa-user-friends"></i> Friend</a>
         <a href="#"><i class="fas fa-bell"></i> Notification</a>
@@ -107,7 +108,14 @@
         <div class="store">
 
         </div>
-    </div>  
+    </div>
+    <div class="img-popup" id="img-popup">
+        <div class="content">
+            <i class="fa-solid fa-x" id="close-icon"></i>
+            <p>Change Profile Image</p>
+            <button>Upload Image</button>
+        </div>
+    </div>
     <script src="./js/app.js"></script>
 </body>
 </html>
