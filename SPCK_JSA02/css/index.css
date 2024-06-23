@@ -164,3 +164,47 @@
     cursor: pointer;
     color: var(--text-color);
 }
+
+.content .main .account-game-status .daily-quest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+    width: 240px;
+    border-radius: 8px;
+}
+
+.content .main .account-game-status .daily-quest .daily-quest-text {
+    display: flex;
+    gap: 100px;
+}
+
+.content .main .account-game-status .daily-quest .daily-quest-content {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-left: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+.content .main .account-game-status .daily-quest .daily-quest-content .quest-title {
+    text-align: center;
+}
+
+.content .main .account-game-status .daily-quest .daily-quest-content .quest-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transform: rotate(-6.2deg);
+    background-color: var(--primary-bg-color);
+}
+
+.content .main .account-game-status .daily-quest .daily-quest-content .quest-progress .quest-progress-bar {
+    width: 80%;
+    height: 3px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: var(--secondary-bg-color);
+}
