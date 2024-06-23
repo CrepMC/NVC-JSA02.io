@@ -22,8 +22,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const user = storedUsers.find(user => user.email === email && user.password === password);
     if (user) {
         alert('Login successful');
-        // Save login status
-        localStorage.setItem('isLoggedIn', 'true');
+        // Save user object with login status
+        user.isLoggedIn = true;
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
         // Redirect to the main page after successful login
         window.location.href = 'index.html';
     } else {
@@ -41,23 +42,30 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
     // Check if email is already registered
-    const userExists = storedUsers.some(user => user.email === email);
+    const userEmailExists = storedUsers.some(user => user.email === email);
+    const userNameExists = storedUsers.some(user => user.name === name);
 
-    if (userExists) {
+    if (userEmailExists) {
         alert('Email is already registered');
+    } else if (userNameExists) {
+        alert('Username is already registered');
+    } else if (password.length < 8) {
+        alert('Password must be at least 8 characters long');
     } else {
         // Store new user data in Local Storage
         const newUser = {
             name: name,
             email: email,
-            password: password
+            password: password,
+            isLoggedIn: false
         };
 
         storedUsers.push(newUser);
         localStorage.setItem('users', JSON.stringify(storedUsers));
         alert('Registration successful');
-        // Save login status
-        localStorage.setItem('isLoggedIn', 'true');
+        // Save user object with login status
+        newUser.isLoggedIn = true;
+        localStorage.setItem('loggedInUser', JSON.stringify(newUser));
         // Redirect to the main page after successful registration
         window.location.href = 'index.html';
     }
@@ -65,7 +73,8 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 
 // Check login status
 window.addEventListener('load', () => {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser && loggedInUser.isLoggedIn) {
         // If logged in, redirect to main page
         window.location.href = 'index.html';
     }
