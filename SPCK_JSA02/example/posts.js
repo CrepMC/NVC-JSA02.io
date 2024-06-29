@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             data.forEach(post => {
                 const postElement = document.createElement('div');
-                postElement.classList.add('post');
+                postElement.classList.add('post-container');
 
                 const supportersHTML = post.supporters.map(supporter => `<img src="${supporter}" alt="Supporter">`).join('');
-                const stickersHTML = post.stickers.map(sticker => `<span>${sticker}</span>`).join(' ');
-                const tagsHTML = post.tags.map(tag => `<span>${tag.replace('#', '')}</span>`).join(' ');
+                const stickersHTML = Object.values(post.stickers).map(sticker => `<span><img src="${sticker}" alt="Sticker"/> 1</span>`).join('');
+                const tagsHTML = post.tags.map(tag => `<span>${tag.replace('#', '')}</span>`).join('');
 
                 postElement.innerHTML = `
                     <div class="post-header">
@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         followButton.classList.add('followed');
                         followButton.textContent = 'Followed';
+                        postElement.style.backgroundColor = '#333';
                     }
                 });
             });

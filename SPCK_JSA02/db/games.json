@@ -1,32 +1,17 @@
 [
     {
-        "img": "",
-        "title": "",
-        "text": ""
+        "title": "Time to Morp",
+        "developer": "Team HalfBeard",
+        "image": "path/to/time_to_morp.png",
+        "price": "Free",
+        "tags": ["action", "adventure"]
     },
     {
-        "img": "",
-        "title": "",
-        "text": ""
-    },
-    {
-        "img": "",
-        "title": "",
-        "text": ""
-    },
-    {
-        "img": "",
-        "title": "",
-        "text": ""
-    },
-    {
-        "img": "",
-        "title": "",
-        "text": ""
-    },
-    {
-        "img": "",
-        "title": "",
-        "text": ""
+        "title": "Rose & Locket",
+        "developer": "WhistlingWizard",
+        "image": "path/to/rose_and_locket.png",
+        "price": "Free",
+        "tags": ["adventure", "platformer"]
     }
 ]
+

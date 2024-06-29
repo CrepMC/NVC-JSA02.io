@@ -1,15 +1,56 @@
 [
-    {
-      "nickname": "User Nickname",
-      "username": "@nahnh",
-      "timePosted": "2 hours ago",
-      "postImg": "https://via.placeholder.com/600x400",
-      "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
-      "supporters": ["Alice", "Bob", "Charlie"],
-      "stickers": ["🔥", "💯", "🚀"],
-      "tags": ["#tag1", "#tag2", "#tag3"],
-      "likes": 150,
-      "comments": 45
-    }
-  ]
-  
+  {
+    "nickname": "User Nickname",
+    "username": "@nahnh",
+    "timePosted": "2 hours ago",
+    "postImg": "https://via.placeholder.com/600x100",
+    "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": "../../../../SPCK_JSA02/img/stickers/109-xaccw66w-v4.png",
+      "sticker2": "../../../../SPCK_JSA02/img/stickers/157-amhrjjrb-v4.png",
+      "sticker3": "../../../../SPCK_JSA02/img/stickers/25-yhfauqpd-v4.png",
+      "sticker4": "../../../../SPCK_JSA02/img/stickers/1988-jx6dehaj-v4.png",
+      "sticker5": "../../../../SPCK_JSA02/img/stickers/4237-vsbfpnwq-v4.png",
+      "sticker6": "../../../../SPCK_JSA02/img/stickers/4697-yqgm6cak-v4.png",
+      "sticker7": "../../../../SPCK_JSA02/img/stickers/66-gyhvtq3k-v4.png",
+      "sticker8": "../../../../SPCK_JSA02/img/stickers/10-pwkhwvdr-v4.png",
+      "sticker9": "../../../../SPCK_JSA02/img/stickers/144-fbxva2pw-v4.png",
+      "sticker10": "../../../../SPCK_JSA02/img/stickers/723-jwphdcpb-v4.png"
+    },
+    "tags": ["coding", "math", "science"],
+    "likes": 30,
+    "comments": 10,
+    "background": "../img/background/breezy-meadow-wanbwhn4.png"
+  },
+  {
+    "nickname": "Another Nickname",
+    "username": "@boby",
+    "timePosted": "5 hours ago",
+    "postImg": "https://via.placeholder.com/600x200",
+    "content": "This is another example post content. It includes various elements for testing.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": "../../../../SPCK_JUNIOR_IG2/assets/stickers/bio.png",
+      "sticker2": "../../../../SPCK_JUNIOR_IG2/assets/stickers/phy.png"
+    },
+    "tags": ["bio", "phy", "chem"],
+    "likes": 45,
+    "comments": 20
+  },
+  {
+    "nickname": "Another Nickname",
+    "username": "@boby",
+    "timePosted": "5 hours ago",
+    "postImg": "https://via.placeholder.com/600x200",
+    "content": "This is another example post content. It includes various elements for testing.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": "../../../../SPCK_JUNIOR_IG2/assets/stickers/bio.png",
+      "sticker2": "../../../../SPCK_JUNIOR_IG2/assets/stickers/phy.png"
+    },
+    "tags": ["bio", "phy", "chem"],
+    "likes": 45,
+    "comments": 20
+  }
+]

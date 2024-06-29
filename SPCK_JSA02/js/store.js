@@ -1,24 +1,30 @@
-fetch('./db/games.json')
-  .then(response => response.json())
-  .then(data => {
-    for (let i in data) {
-        const game = data[i];
-        console.log(game);
-
-        const iconsImg = ''
-
-        for (let i = 0; i < game.icons.length; i++) {
-            iconsImg += `<li><img src="${game.icons[i]}"/></li>`
-        }
-
-        const gameElement = document.createElement('div');
-        gameElement.classList.add('game');
-        gameElement.innerHTML = `
-            <img src="${game.img}" alt="${game.name}">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
-            <ul>${iconsImg}</ul>
-        `;
-        document.body.appendChild(gameElement);
-    }
-  })
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('./db/games.json')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          if (!Array.isArray(data)) {
+              throw new Error('Invalid JSON format');
+          }
+          const gamesSection = document.getElementById('games');
+          data.forEach(game => {
+              const gameCard = document.createElement('div');
+              gameCard.classList.add('game-card');
+              gameCard.innerHTML = `
+                  <img src="${game.image}" alt="${game.title}">
+                  <h3>${game.title}</h3>
+                  <p>by ${game.developer}</p>
+                  <p>${game.price}</p>
+                  <p>${game.tags.map(tag => `#${tag}`).join(' ')}</p>
+              `;
+              gamesSection.appendChild(gameCard);
+          });
+      })
+      .catch(error => {
+          console.error('Error fetching and parsing data:', error);
+      });
+});
