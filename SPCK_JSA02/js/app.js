@@ -164,8 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
       posts.forEach(post => {
           const postElement = document.createElement('div');
           postElement.classList.add('post', 'post-container');
+          postElement.style.background = `url(${post.background})`;
           const supportersHTML = post.supporters.map(supporter => `<img src="${supporter}" alt="Supporter">`).join('');
-          const stickersHTML = Object.values(post.stickers).map(sticker => `<span><img src="${sticker}" alt="Sticker"/> 1</span>`).join('');
+          const stickersHTML = Object.values(post.stickers).map(sticker => `<span><img src="${sticker.url}" alt="Sticker"> ${sticker.number}</span>`).join('');
           const tagsHTML = post.tags.map(tag => `<span>${tag.replace('#', '')}</span>`).join('');
           let backgroundHTML = '';
           if (Array.isArray(post.background)) {
@@ -174,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
               backgroundHTML = `<div class="post-header" style="background-image: url(${post.background})">`;
           }
           postElement.innerHTML = `
-              ${backgroundHTML}
+              <div class="post-header">
                   <div class="post-user-info">
                       <img src="https://via.placeholder.com/50" alt="User Image">
                       <div class="user-details">
@@ -189,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <img class="post-img" src="${post.postImg}" alt="Post Image">
               <div class="post-content">${post.content}</div>
-              <button class="read-more-button">Read Article</button>
+
               <div class="supporters">
                   ${supportersHTML}
               </div>
@@ -205,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="icon sticker-icon"><i class="fas fa-sticky-note"></i></span>
               </div>
           `;
-
+          // <button class="read-more-button">Read Article</button>
           postContainer.appendChild(postElement);
 
           const followButton = postElement.querySelector('.follow-button');

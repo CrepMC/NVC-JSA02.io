@@ -79,19 +79,3 @@ window.addEventListener('load', () => {
         window.location.href = 'index.html';
     }
 });
-
-const JSONToFile = (obj, fileName = "database.json") => {
-  const blob = new Blob([JSON.stringify(obj, null, 2)], {
-    type: 'application/json',
-  });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${fileName}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-};
-
-// Example usage
-const data = { test: 'is passed' };
-JSONToFile(data, 'testJsonFile');

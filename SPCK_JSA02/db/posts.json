@@ -7,17 +7,48 @@
     "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
     "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
     "stickers": {
-      "sticker1": "../../../../SPCK_JSA02/img/stickers/109-xaccw66w-v4.png",
-      "sticker2": "../../../../SPCK_JSA02/img/stickers/157-amhrjjrb-v4.png",
-      "sticker3": "../../../../SPCK_JSA02/img/stickers/25-yhfauqpd-v4.png",
-      "sticker4": "../../../../SPCK_JSA02/img/stickers/1988-jx6dehaj-v4.png",
-      "sticker5": "../../../../SPCK_JSA02/img/stickers/4237-vsbfpnwq-v4.png",
-      "sticker6": "../../../../SPCK_JSA02/img/stickers/4697-yqgm6cak-v4.png",
-      "sticker7": "../../../../SPCK_JSA02/img/stickers/66-gyhvtq3k-v4.png",
-      "sticker8": "../../../../SPCK_JSA02/img/stickers/10-pwkhwvdr-v4.png",
-      "sticker9": "../../../../SPCK_JSA02/img/stickers/144-fbxva2pw-v4.png",
-      "sticker10": "../../../../SPCK_JSA02/img/stickers/723-jwphdcpb-v4.png"
+      "sticker1": {
+        "url": "../img/stickers/sticker011.png",
+        "number": 21
+      }, 
+      "sticker2": {
+        "url": "../img/stickers/sticker152.png",
+        "number": 12
+      },
+      "sticker3": {
+        "url": "../img/stickers/sticker151.png",
+        "number": 21
+      },
+      "sticker4": {
+        "url": "../img/stickers/sticker150.png",
+        "number": 31
+      },
+      "sticker5": {
+        "url": "../img/stickers/sticker149.png",
+        "number": 44
+      },
+      "sticker6": {
+        "url": "../img/stickers/sticker148.png",
+        "number": 5
+      },
+      "sticker7": {
+        "url": "../img/stickers/sticker147.png",
+        "number": 6
+      },
+      "sticker8": {
+        "url": "../img/stickers/sticker146.png",
+        "number": 7
+      },
+      "sticker9": {
+        "url": "../img/stickers/sticker145.png",
+        "number": 8
+      },
+      "sticker10": {
+        "url": "../img/stickers/sticker125.png",
+        "number": 11
+      }
     },
+  
     "tags": ["coding", "math", "science"],
     "likes": 30,
     "comments": 10,
@@ -36,7 +67,8 @@
     },
     "tags": ["bio", "phy", "chem"],
     "likes": 45,
-    "comments": 20
+    "comments": 20,
+    "background": "../img/background/bg1.png"
   },
   {
     "nickname": "Another Nickname",
@@ -46,11 +78,211 @@
     "content": "This is another example post content. It includes various elements for testing.",
     "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
     "stickers": {
-      "sticker1": "../../../../SPCK_JUNIOR_IG2/assets/stickers/bio.png",
-      "sticker2": "../../../../SPCK_JUNIOR_IG2/assets/stickers/phy.png"
+      "sticker1": {
+        "url": "../img/stickers/sticker011.png",
+        "number": 21
+      }, 
+      "sticker2": {
+        "url": "../img/stickers/sticker112.png",
+        "number": 12
+      },
+      "sticker3": {
+        "url": "../img/stickers/sticker111.png",
+        "number": 21
+      },
+      "sticker4": {
+        "url": "../img/stickers/sticker110.png",
+        "number": 31
+      },
+      "sticker5": {
+        "url": "../img/stickers/sticker119.png",
+        "number": 44
+      },
+      "sticker6": {
+        "url": "../img/stickers/sticker118.png",
+        "number": 5
+      },
+      "sticker7": {
+        "url": "../img/stickers/sticker117.png",
+        "number": 6
+      },
+      "sticker8": {
+        "url": "../img/stickers/sticker116.png",
+        "number": 7
+      },
+      "sticker9": {
+        "url": "../img/stickers/sticker115.png",
+        "number": 8
+      },
+      "sticker10": {
+        "url": "../img/stickers/sticker115.png",
+        "number": 11
+      }
     },
     "tags": ["bio", "phy", "chem"],
     "likes": 45,
-    "comments": 20
+    "comments": 20,
+    "background": "../img/background/bg2.png"
+  },{
+    "nickname": "User Nickname",
+    "username": "@nahnh",
+    "timePosted": "2 hours ago",
+    "postImg": "https://via.placeholder.com/600x100",
+    "content": "This is the content of the post. It can be as long as necessary to demonstrate the layout.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": {
+        "url": "../img/stickers/sticker011.png",
+        "number": 21
+      }, 
+      "sticker2": {
+        "url": "../img/stickers/sticker102.png",
+        "number": 12
+      },
+      "sticker3": {
+        "url": "../img/stickers/sticker101.png",
+        "number": 21
+      },
+      "sticker4": {
+        "url": "../img/stickers/sticker100.png",
+        "number": 31
+      },
+      "sticker5": {
+        "url": "../img/stickers/sticker109.png",
+        "number": 44
+      },
+      "sticker6": {
+        "url": "../img/stickers/sticker108.png",
+        "number": 5
+      },
+      "sticker7": {
+        "url": "../img/stickers/sticker107.png",
+        "number": 6
+      },
+      "sticker8": {
+        "url": "../img/stickers/sticker106.png",
+        "number": 7
+      },
+      "sticker9": {
+        "url": "../img/stickers/sticker105.png",
+        "number": 8
+      },
+      "sticker10": {
+        "url": "../img/stickers/sticker105.png",
+        "number": 11
+      }
+    },
+    "tags": ["coding", "math", "science"],
+    "likes": 30,
+    "comments": 10,
+    "background": "../img/background/breezy-meadow-wanbwhn4.png"
+  },
+  {
+    "nickname": "Another Nickname",
+    "username": "@boby",
+    "timePosted": "5 hours ago",
+    "postImg": "https://via.placeholder.com/600x200",
+    "content": "This is another example post content. It includes various elements for testing.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": {
+        "url": "../img/stickers/sticker011.png",
+        "number": 21
+      }, 
+      "sticker2": {
+        "url": "../img/stickers/sticker122.png",
+        "number": 12
+      },
+      "sticker3": {
+        "url": "../img/stickers/sticker121.png",
+        "number": 21
+      },
+      "sticker4": {
+        "url": "../img/stickers/sticker120.png",
+        "number": 31
+      },
+      "sticker5": {
+        "url": "../img/stickers/sticker129.png",
+        "number": 44
+      },
+      "sticker6": {
+        "url": "../img/stickers/sticker128.png",
+        "number": 5
+      },
+      "sticker7": {
+        "url": "../img/stickers/sticker127.png",
+        "number": 6
+      },
+      "sticker8": {
+        "url": "../img/stickers/sticker126.png",
+        "number": 7
+      },
+      "sticker9": {
+        "url": "../img/stickers/sticker125.png",
+        "number": 8
+      },
+      "sticker10": {
+        "url": "../img/stickers/sticker125.png",
+        "number": 11
+      }
+    },
+    "tags": ["bio", "phy", "chem"],
+    "likes": 45,
+    "comments": 20,
+    "background": "../img/background/bg1.png"
+  },
+  {
+    "nickname": "Another Nickname",
+    "username": "@boby",
+    "timePosted": "5 hours ago",
+    "postImg": "https://via.placeholder.com/600x200",
+    "content": "This is another example post content. It includes various elements for testing.",
+    "supporters": ["https://via.placeholder.com/20", "https://via.placeholder.com/20", "https://via.placeholder.com/20"],
+    "stickers": {
+      "sticker1": {
+        "url": "../img/stickers/sticker011.png",
+        "number": 21
+      }, 
+      "sticker2": {
+        "url": "../img/stickers/sticker052.png",
+        "number": 12
+      },
+      "sticker3": {
+        "url": "../img/stickers/sticker051.png",
+        "number": 21
+      },
+      "sticker4": {
+        "url": "../img/stickers/sticker050.png",
+        "number": 31
+      },
+      "sticker5": {
+        "url": "../img/stickers/sticker049.png",
+        "number": 44
+      },
+      "sticker6": {
+        "url": "../img/stickers/sticker048.png",
+        "number": 5
+      },
+      "sticker7": {
+        "url": "../img/stickers/sticker047.png",
+        "number": 6
+      },
+      "sticker8": {
+        "url": "../img/stickers/sticker046.png",
+        "number": 7
+      },
+      "sticker9": {
+        "url": "../img/stickers/sticker045.png",
+        "number": 8
+      },
+      "sticker10": {
+        "url": "../img/stickers/sticker025.png",
+        "number": 11
+      }
+    },
+    "tags": ["bio", "phy", "chem"],
+    "likes": 45,
+    "comments": 20,
+    "background": "../img/background/bg2.png"
   }
 ]
