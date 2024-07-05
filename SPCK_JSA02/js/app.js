@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
           postElement.innerHTML = `
               <div class="post-header">
                   <div class="post-user-info">
-                      <img src="https://via.placeholder.com/50" alt="User Image">
+                      <img src="${post.userImg}" alt="User Image">
                       <div class="user-details">
                           <span class="nickname"><a href="#">${post.nickname}</a></span>
                           <span class="username"><a href="#">${post.username}</a></span>
@@ -201,9 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
                   ${tagsHTML}
               </div>
               <div class="likes">
-                  <span class="icon heart-icon"><i class="fas fa-heart"></i> ${post.likes}</span>
-                  <span class="icon chat-icon"><i class="fas fa-comments"></i> ${post.comments}</span>
-                  <span class="icon sticker-icon"><i class="fas fa-sticky-note"></i></span>
+                  <span class="icon-1 heart-icon"><i class="fas fa-heart"></i> ${post.likes}</span>
+                  <span class="icon-1 chat-icon"><i class="fas fa-comments"></i> ${post.comments}</span>
+                  <span class="icon-1 sticker-icon"><i class="fas fa-sticky-note"></i></span>
               </div>
           `;
           // <button class="read-more-button">Read Article</button>
@@ -269,3 +269,43 @@ logo.addEventListener('click', () => {
   document.querySelector('.main').style.display = 'block';
   
 })
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const cooldownMessage = document.querySelector('.daily-quest-time span');
+//   const cooldownTime = 60 * 60 * 1000; // 1 hour in milliseconds
+//   const restartTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+//   function formatTime(ms) {
+//     const totalSeconds = Math.floor(ms / 1000);
+//     const hours = Math.floor(totalSeconds / 3600);
+//     const minutes = Math.floor((totalSeconds % 3600) / 60);
+//     const seconds = totalSeconds % 60;
+//     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+//   }
+
+//   function startCooldown() {
+//     let endTime = Date.now() + cooldownTime;
+//     let intervalId = setInterval(() => {
+//       let remainingTime = endTime - Date.now();
+//       if (remainingTime <= 0) {
+//         clearInterval(intervalId);
+//         cooldownMessage.textContent = '';
+//         setTimeout(() => {
+//           startCooldown();
+//         }, restartTime - cooldownTime);
+//       } else {
+//         cooldownMessage.textContent = `${formatTime(remainingTime)}`;
+//       }
+//     }, 1000);
+//   }
+
+//   function autoRestart() {
+//     startCooldown();
+//     setInterval(() => {
+//       startCooldown();
+//     }, restartTime);
+//   }
+
+//   // Start the first cooldown on page load
+//   autoRestart();
+// });
