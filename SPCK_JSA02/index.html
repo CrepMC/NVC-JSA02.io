@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameJolt</title>
+    <title>GameBot</title>
+    <link rel="shortcut icon" href="./img/Gamebot-logo-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/discover.css">
@@ -12,8 +13,8 @@
 <body>
     <div class="navbar">
         <a href="#" class="logo">
-            <img draggable="false" src="./img/gamejolt_text_logo.svg" id="text" alt="GameJolt Logo">
-            <img draggable="false" src="./img/gamejolt_img_logo.svg" id="img" alt="GameJolt Logo">
+            <img draggable="false" src="./img/Gamebot-text-removebg-preview.png" width="150px" id="text" alt="GameJolt Logo">
+            <img draggable="false" src="./img/Gamebot-logo-removebg-preview.png" width="500px" height="500px" id="img" alt="GameJolt Logo">
         </a>
         <div class="menu">
             <a href="#"><i class="fas fa-compass"></i>DISCOVER</a>
@@ -89,7 +90,7 @@
                         <span>Daily quest</span>
                         <div class="daily-quest-time">
                             <i class="fa-solid fa-clock"></i>
-                            <span></span>
+                            <span>12h</span>
                         </div>
                     </div>
                     <div class="daily-quest-content">
@@ -158,37 +159,131 @@
                 </div>
             </div>   
         </div>
-
         <div class="discover">
 
         </div>
         <div class="store">
+            <div class="browse-title">
+                Browse Games
+            </div>
             <header>
                 <nav>
                     <ul>
-                        <li>#action</li>
-                        <li>#horror</li>
-                        <li>#adventure</li>
-                        <li>#fangame</li>
-                        <li>#fnaf</li>
-                        <li>#undertale</li>
-                        <li>#bendy</li>
-                        <li>#fnf</li>
-                        <li>#rpg</li>
-                        <li>#other</li>
-                        <li>#multiplayer</li>
-                        <li>#platformer</li>
-                        <li>#scifi</li>
+                        <li>
+                            <img src="./img/list-gametype/gametype01.png" alt="">
+                            #action
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype02.png" alt="">
+                            #horror
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype03.png" alt="">
+                            #adventure
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype04.png" alt="">
+                            #fangame
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype05.png" alt="">
+                            #fnaf
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype06.png" alt="">
+                            #undertale
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype07.png" alt="">
+                            #bendy
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype08.png" alt="">
+                            #fnf
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype09.png" alt="">
+                            #rpg
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype10.png" alt="">
+                            #other
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype11.png" alt="">
+                            #multiplayer
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype12.png" alt="">
+                            #platformer
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype13.png" alt="">
+                            #scifi
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype14.png" alt="">
+                            #retro
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype15.png" alt="">
+                            #pointnclick
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype16.png" alt="">
+                            #shooter
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype17.png" alt="">
+                            #altgame
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype18.png" alt="">
+                            #vr
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype19.png" alt="">
+                            #survival
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype20.png" alt="">
+                            #arcade
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype21.png" alt="">
+                            #roguelike
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype22.png" alt="">
+                            #puzzle
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype23.png" alt="">
+                            #strategy
+                        </li>
+                        <li>
+                            <img src="./img/list-gametype/gametype24.png" alt="">
+                            #sports
+                        </li>
                     </ul>
                 </nav>
             </header>
-            <main>
-                <section id="filter">
-                    <button>Featured</button>
-                    <button>Hot</button>
-                    <button>Best</button>
-                    <button>New</button>
-                </section>
+            <div class="nav-container">
+                <div class="tabs">
+                    <div class="tab active">Featured</div>
+                    <div class="tab">Hot</div>
+                    <div class="tab">Best</div>
+                    <div class="tab">New</div>
+                </div>
+                <div class="filters">
+                    <div class="dropdown">Price &#9662;</div>
+                    <div class="dropdown">OS &#9662;</div>
+                    <div class="dropdown">Browser &#9662;</div>
+                    <div class="dropdown">Maturity &#9662;</div>
+                    <div class="dropdown">Status &#9662;</div>
+                    <div class="dropdown">Partners &#9662;</div>
+                </div>
+            </div>
                 <section id="games">
                     <!-- Games will be populated here -->
                 </section>

@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const followedTab = document.querySelector('.followed-span');
   let allPosts = [];
   let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
+  let currentTab = 'forYou';  // Track the current tab state
 
   fetch('./db/posts.json')
       .then(response => response.json())
@@ -135,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
           renderPosts(allPosts);
 
           forYouTab.addEventListener('click', () => {
+              currentTab = 'forYou';  // Update current tab state
               forYouTab.classList.add('active');
               followedTab.classList.remove('active');
               removeNoFollowMessage();
@@ -142,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
 
           followedTab.addEventListener('click', () => {
+              currentTab = 'followed';  // Update current tab state
               forYouTab.classList.remove('active');
               followedTab.classList.add('active');
               const followedPosts = allPosts.filter(post => post.followed);
@@ -211,27 +214,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const followButton = postElement.querySelector('.follow-button');
           followButton.addEventListener('click', () => {
-              const username = post.username;
-              const isFollowed = followButton.classList.contains('followed');
+            const username = post.username;
+            const isFollowed = followButton.classList.contains('followed');
 
-              allPosts.forEach(p => {
-                  if (p.username === username) {
-                      p.followed = !isFollowed;
-                  }
-              });
-
-              // Update followedPosts in loggedInUser
-              if (!isFollowed) {
-                  loggedInUser.followedPosts = loggedInUser.followedPosts || [];
-                  loggedInUser.followedPosts.push(username);
-              } else {
-                  loggedInUser.followedPosts = loggedInUser.followedPosts.filter(user => user !== username);
+            // Update the followed status in the allPosts array
+            allPosts.forEach(p => {
+              if (p.username === username) {
+                p.followed = !isFollowed;
               }
+            });
 
-              // Save updated loggedInUser to localStorage
-              localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+            // Update the followed status in the loggedInUser object
+            if (!isFollowed) {
+              loggedInUser.followedPosts = loggedInUser.followedPosts || [];
+              loggedInUser.followedPosts.push(username);
+            } else {
+              loggedInUser.followedPosts = loggedInUser.followedPosts.filter(user => user !== username);
+            }
 
+            // Save updated loggedInUser to localStorage
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+            // Update the UI based on the current tab state
+            if (currentTab === 'followed') {
+              const followedPosts = allPosts.filter(post => post.followed);
+              if (followedPosts.length === 0) {
+                displayNoFollowMessage();
+                renderPosts([]);  // Render empty array to clear posts
+              } else {
+                removeNoFollowMessage();
+                renderPosts(followedPosts);
+              }
+            } else {
               renderPosts(allPosts);
+            }
           });
       });
   }
@@ -253,22 +269,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-const storePage = document.querySelector('.store-page')
+const storePage = document.querySelector('.store-page');
 
 storePage.addEventListener('click', () => {
-  const store = document.querySelector('.store')
+  const store = document.querySelector('.store');
   store.style.display = 'block';
   document.querySelector('.main').style.display = 'none';
-})
+});
 
-const logo = document.querySelector(".logo")
+const logo = document.querySelector(".logo");
 
 logo.addEventListener('click', () => {
-  const store = document.querySelector('.store')
+  const store = document.querySelector('.store');
   store.style.display = 'none';
   document.querySelector('.main').style.display = 'block';
-  
-})
+});
 
 // document.addEventListener('DOMContentLoaded', () => {
 //   const cooldownMessage = document.querySelector('.daily-quest-time span');

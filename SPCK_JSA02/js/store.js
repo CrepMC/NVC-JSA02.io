@@ -15,11 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
               const gameCard = document.createElement('div');
               gameCard.classList.add('game-card');
               gameCard.innerHTML = `
-                  <img src="${game.image}" alt="${game.title}">
-                  <h3>${game.title}</h3>
-                  <p>by ${game.developer}</p>
-                  <p>${game.price}</p>
-                  <p>${game.tags.map(tag => `#${tag}`).join(' ')}</p>
+                <a href="${game.link}" target="_blank" class="buy-button">
+                    <img src="${game.image}" alt="${game.title}">
+                    <h3>${game.title}</h3>
+                    <p>by ${game.developer}</p>
+                    <p>${game.price}</p>
+                </a>
               `;
               gamesSection.appendChild(gameCard);
           });

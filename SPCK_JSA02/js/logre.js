@@ -65,7 +65,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         alert('Registration successful');
         // Save user object with login status
         newUser.isLoggedIn = true;
-        localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+        localStorage.setItem('loggedInUser', JSON.stringify({ email: newUser.email, isLoggedIn: true })); // Store only necessary data
         // Redirect to the main page after successful registration
         window.location.href = 'index.html';
     }
@@ -79,3 +79,6 @@ window.addEventListener('load', () => {
         window.location.href = 'index.html';
     }
 });
+
+// Clear old data
+localStorage.removeItem('loggedInUser');
