@@ -82,3 +82,9 @@ window.addEventListener('load', () => {
 
 // Clear old data
 localStorage.removeItem('loggedInUser');
+
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js'
