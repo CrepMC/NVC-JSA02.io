@@ -4,6 +4,8 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
 import { auth } from './firebase-config.js';
 
+import { handleRedirect, handleToast } from './ultis.js';
+
 const signInButton = document.getElementById('signIn');
 const signUpButton = document.getElementById('signUp');
 const container = document.querySelector('.container');
@@ -21,16 +23,6 @@ const toast = document.querySelector('.toast');
   });
 })();
 
-// Handle Toast
-const handleToast = (content, bgColor) => {
-  toast.style.display = 'block';
-  toast.style.backgroundColor = bgColor;
-  toast.textContent = content;
-  setTimeout(() => {
-    toast.style.display = 'none';
-  }, 1000);
-};
-
 // Register User
 registerForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -42,6 +34,7 @@ registerForm.addEventListener('submit', async (event) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     handleToast('Register Success!', 'green');
+    handleRedirect('index.html');
   } catch (error) {
     handleToast(error.message, 'red');
   }
@@ -56,19 +49,9 @@ loginForm.addEventListener('submit', async (event) => {
   try {
     const res = await signInWithEmailAndPassword(auth, email, password);
     handleToast('Login Success!', 'green');
+    handleRedirect('index.html');
   } catch (error) {
     handleToast(error.message, 'red');
   }
 });
 
-// Check login status
-window.addEventListener('load', () => {
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  if (loggedInUser && loggedInUser.isLoggedIn) {
-    // If logged in, redirect to main page
-    window.location.href = 'index.html';
-  }
-});
-
-// Clear old data
-localStorage.removeItem('loggedInUser');

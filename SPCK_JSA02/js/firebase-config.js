@@ -3,12 +3,12 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/fireba
 import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCHlPkTVQrZfbFQuJzhuET8e6ji9xQl_mU',
-  authDomain: 'gamebot-jsi02.firebaseapp.com',
-  projectId: 'gamebot-jsi02',
-  storageBucket: 'gamebot-jsi02.appspot.com',
-  messagingSenderId: '266885043425',
-  appId: '1:266885043425:web:7cdfd57b16606a34ffd3a0',
+  apiKey: 'AIzaSyAqt7k3gAP5CkemLNKoWrfSQ6qmGb1vq_8',
+  authDomain: 'gamebotjsi02.firebaseapp.com',
+  projectId: 'gamebotjsi02',
+  storageBucket: 'gamebotjsi02.appspot.com',
+  messagingSenderId: '1073096394585',
+  appId: '1:1073096394585:web:c519c5d558cb9271b5ae48',
 };
 
 export const app = initializeApp(firebaseConfig);

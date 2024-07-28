@@ -1,3 +1,7 @@
+import { signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+import { auth } from './firebase-config.js';
+import { handleRedirect, handleToast } from './ultis.js';
+
 const clickPopUp = document.querySelector('#click-popup');
 const clickDeletePopup = document.querySelector('#click-delete-popup');
 const popup = document.querySelector('.popup');
@@ -7,7 +11,7 @@ const inviteButton = document.querySelector('.invite-link-button-copy');
 const imgChangePopup = document.querySelector('#img-popup');
 const imgDeleteChangePopup = document.querySelector('#close-icon');
 const imgChangePopupBtn = document.querySelector('#img-popup button');
-const logoutButton = document.getElementById('logoutButton')
+const logoutButton = document.getElementById('logoutButton');
 
 (function handleUI() {
   clickPopUp.addEventListener('click', () => {
@@ -31,6 +35,24 @@ const logoutButton = document.getElementById('logoutButton')
   });
 })();
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = useruid
+  } else {
+    handleRedirect('logre.html');
+  }
+})
+
+logoutButton.addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      handleToast('Logout Success', "green");
+      handleRedirect("logre.html")
+    })
+    .catch((err) => {
+      console.log('SignOut Failure!!', "red");
+    });
+});
 
 // window.addEventListener('load', () => {
 //   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -64,7 +86,8 @@ fileInput.addEventListener('change', (event) => {
 
       // Find the logged in user (assuming email is unique)
       const loggedInUser = storedUsers.find(
-        (user) => user.email === JSON.parse(localStorage.getItem('loggedInUser')).email
+        (user) =>
+          user.email === JSON.parse(localStorage.getItem('loggedInUser')).email
       );
 
       if (loggedInUser) {
@@ -127,7 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Load followed status from loggedInUser
       allPosts.forEach((post) => {
-        post.followed = loggedInUser.followedPosts && loggedInUser.followedPosts.includes(post.username);
+        post.followed =
+          loggedInUser.followedPosts &&
+          loggedInUser.followedPosts.includes(post.username);
       });
 
       renderPosts(allPosts);
@@ -165,15 +190,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const postElement = document.createElement('div');
       postElement.classList.add('post', 'post-container');
       postElement.style.background = `url(${post.background})`;
-      const supportersHTML = post.supporters.map((supporter) => `<img src="${supporter}" alt="Supporter">`).join('');
-      const stickersHTML = Object.values(post.stickers)
-        .map((sticker) => `<span><img src="${sticker.url}" alt="Sticker"> ${sticker.number}</span>`)
+      const supportersHTML = post.supporters
+        .map((supporter) => `<img src="${supporter}" alt="Supporter">`)
         .join('');
-      const tagsHTML = post.tags.map((tag) => `<span>${tag.replace('#', '')}</span>`).join('');
+      const stickersHTML = Object.values(post.stickers)
+        .map(
+          (sticker) =>
+            `<span><img src="${sticker.url}" alt="Sticker"> ${sticker.number}</span>`
+        )
+        .join('');
+      const tagsHTML = post.tags
+        .map((tag) => `<span>${tag.replace('#', '')}</span>`)
+        .join('');
       let backgroundHTML = '';
       if (Array.isArray(post.background)) {
         backgroundHTML = post.background
-          .map((background) => `<div class="post-header" style="background-image: url(${background})">`)
+          .map(
+            (background) =>
+              `<div class="post-header" style="background-image: url(${background})">`
+          )
           .join('');
       } else if (typeof post.background === 'string') {
         backgroundHTML = `<div class="post-header" style="background-image: url(${post.background})">`;
@@ -183,15 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="post-user-info">
                       <img src="${post.userImg}" alt="User Image">
                       <div class="user-details">
-                          <span class="nickname"><a href="#">${post.nickname}</a></span>
-                          <span class="username"><a href="#">${post.username}</a></span>
+                          <span class="nickname"><a href="#">${
+                            post.nickname
+                          }</a></span>
+                          <span class="username"><a href="#">${
+                            post.username
+                          }</a></span>
                       </div>
                   </div>
                   <div class="post-time-follow">
                       <div class="post-time">${post.timePosted}</div>
-                      <button class="follow-button ${post.followed ? 'followed' : ''}">${
-        post.followed ? 'Followed' : 'Follow'
-      }</button>
+                      <button class="follow-button ${
+                        post.followed ? 'followed' : ''
+                      }">${post.followed ? 'Followed' : 'Follow'}</button>
                   </div>
               </div>
               <img class="post-img" src="${post.postImg}" alt="Post Image">
@@ -207,8 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   ${tagsHTML}
               </div>
               <div class="likes">
-                  <span class="icon-1 heart-icon"><i class="fas fa-heart"></i> ${post.likes}</span>
-                  <span class="icon-1 chat-icon"><i class="fas fa-comments"></i> ${post.comments}</span>
+                  <span class="icon-1 heart-icon"><i class="fas fa-heart"></i> ${
+                    post.likes
+                  }</span>
+                  <span class="icon-1 chat-icon"><i class="fas fa-comments"></i> ${
+                    post.comments
+                  }</span>
                   <span class="icon-1 sticker-icon"><i class="fas fa-sticky-note"></i></span>
               </div>
           `;
@@ -232,7 +275,9 @@ document.addEventListener('DOMContentLoaded', () => {
           loggedInUser.followedPosts = loggedInUser.followedPosts || [];
           loggedInUser.followedPosts.push(username);
         } else {
-          loggedInUser.followedPosts = loggedInUser.followedPosts.filter((user) => user !== username);
+          loggedInUser.followedPosts = loggedInUser.followedPosts.filter(
+            (user) => user !== username
+          );
         }
 
         // Save updated loggedInUser to localStorage
