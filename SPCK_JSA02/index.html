@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,14 @@
     <link rel="stylesheet" href="./css/discover.css">
     <link rel="stylesheet" href="./css/store.css">
 </head>
+
 <body>
     <div class="navbar">
         <a href="#" class="logo">
-            <img draggable="false" src="./img/Gamebot-text-removebg-preview.png" width="150px" id="text" alt="GameBot Logo">
-            <img draggable="false" src="./img/Gamebot-logo-removebg-preview.png" width="500px" height="500px" id="img" alt="GameBot Logo">
+            <img draggable="false" src="./img/Gamebot-text-removebg-preview.png" width="150px" id="text"
+                alt="GameBot Logo">
+            <img draggable="false" src="./img/Gamebot-logo-removebg-preview.png" width="500px" height="500px" id="img"
+                alt="GameBot Logo">
         </a>
         <div class="menu">
             <a href="#"><i class="fas fa-compass"></i>DISCOVER</a>
@@ -25,12 +29,15 @@
         <div class="user-controls">
             <a href="#"><i class="fas fa-bell"></i></a>
             <a href="#"><i class="fas fa-user-friends"></i></a>
-            <button type="button" id="click-popup"><img id="profile-popup" draggable="false" src="./img/profile.png" alt="User Image"></button>
-            <button type="button" id="click-delete-popup"><img id="delete-popup" draggable="false" src="./img/profile.png" alt="User Image"></button>
+            <button type="button" id="click-popup"><img id="profile-popup" draggable="false" src="./img/profile.png"
+                    alt="User Image"></button>
+            <button type="button" id="click-delete-popup"><img id="delete-popup" draggable="false"
+                    src="./img/profile.png" alt="User Image"></button>
         </div>
     </div>
     <div class="popup" id="popup">
-        <button class="change-acc-img"><img draggable="false" src="./img/profile.png" alt="User Image" id="profileImage"></button>
+        <button class="change-acc-img"><img draggable="false" src="./img/profile.png" alt="User Image"
+                id="profileImage"></button>
         <input type="file" id="fileInput" accept="image/*" style="display: none;">
         <span id="popupMessage"></span>
         <hr width="100px" color="#b1b1b1">
@@ -138,7 +145,8 @@
                             Invite Link
                         </div>
                         <div class="invite-link-text-content">
-                            <input type="text" class="invite-link-text-content-input" value="https://www.gamejolt.com/invite/123456">
+                            <input type="text" class="invite-link-text-content-input"
+                                value="https://www.gamejolt.com/invite/123456">
                         </div>
                     </div>
                     <div class="invite-link-button">
@@ -157,7 +165,7 @@
                         <div class="underline"></div>
                     </div>
                 </div>
-            </div>   
+            </div>
         </div>
         <div class="discover">
 
@@ -284,9 +292,9 @@
                     <div class="dropdown">Partners &#9662;</div>
                 </div>
             </div>
-                <section id="games">
-                    <!-- Games will be populated here -->
-                </section>
+            <section id="games">
+                <!-- Games will be populated here -->
+            </section>
             </main>
         </div>
     </div>
@@ -297,7 +305,7 @@
             <button>Upload Image</button>
         </div>
     </div>
-    <script src="../game-jolt-api-js-library/source/gj-js-api.js"></script>
+
     <script src="./js/app.js"></script>
     <script src="./js/store.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -307,10 +315,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
     <script>
         // Set the default locale to Vietnamese
         moment.locale('vi');
     </script>
 </body>
+
 </html>

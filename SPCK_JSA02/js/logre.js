@@ -1,90 +1,74 @@
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+import { auth } from './firebase-config.js';
+
 const signInButton = document.getElementById('signIn');
 const signUpButton = document.getElementById('signUp');
 const container = document.querySelector('.container');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+const toast = document.querySelector('.toast');
 
-signInButton.addEventListener('click', () => {
+(function handleUI() {
+  signInButton.addEventListener('click', () => {
     container.classList.remove('right-panel-active');
-});
+  });
 
-signUpButton.addEventListener('click', () => {
+  signUpButton.addEventListener('click', () => {
     container.classList.add('right-panel-active');
+  });
+})();
+
+// Handle Toast
+const handleToast = (content, bgColor) => {
+  toast.style.display = 'block';
+  toast.style.backgroundColor = bgColor;
+  toast.textContent = content;
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 1000);
+};
+
+// Register User
+registerForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const name = document.getElementById('registerName').value;
+  const email = document.getElementById('registerEmail').value;
+  const password = document.getElementById('registerPassword').value;
+  console.log(email, password);
+
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    handleToast('Register Success!', 'green');
+  } catch (error) {
+    handleToast(error.message, 'red');
+  }
 });
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
+// Login User
+loginForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
 
-    // Retrieve stored users data
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Check if user exists and password matches
-    const user = storedUsers.find(user => user.email === email && user.password === password);
-    if (user) {
-        alert('Login successful');
-        // Save user object with login status
-        user.isLoggedIn = true;
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        // Redirect to the main page after successful login
-        window.location.href = 'index.html';
-    } else {
-        alert('Invalid email or password');
-    }
-});
-
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-
-    // Retrieve stored users data
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Check if email is already registered
-    const userEmailExists = storedUsers.some(user => user.email === email);
-    const userNameExists = storedUsers.some(user => user.name === name);
-
-    if (userEmailExists) {
-        alert('Email is already registered');
-    } else if (userNameExists) {
-        alert('Username is already registered');
-    } else if (password.length < 8) {
-        alert('Password must be at least 8 characters long');
-    } else {
-        // Store new user data in Local Storage
-        const newUser = {
-            name: name,
-            email: email,
-            password: password,
-            isLoggedIn: false
-        };
-
-        storedUsers.push(newUser);
-        localStorage.setItem('users', JSON.stringify(storedUsers));
-        alert('Registration successful');
-        // Save user object with login status
-        newUser.isLoggedIn = true;
-        localStorage.setItem('loggedInUser', JSON.stringify({ email: newUser.email, isLoggedIn: true })); // Store only necessary data
-        // Redirect to the main page after successful registration
-        window.location.href = 'index.html';
-    }
+  try {
+    const res = await signInWithEmailAndPassword(auth, email, password);
+    handleToast('Login Success!', 'green');
+  } catch (error) {
+    handleToast(error.message, 'red');
+  }
 });
 
 // Check login status
 window.addEventListener('load', () => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser && loggedInUser.isLoggedIn) {
-        // If logged in, redirect to main page
-        window.location.href = 'index.html';
-    }
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (loggedInUser && loggedInUser.isLoggedIn) {
+    // If logged in, redirect to main page
+    window.location.href = 'index.html';
+  }
 });
 
 // Clear old data
 localStorage.removeItem('loggedInUser');
-
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js'

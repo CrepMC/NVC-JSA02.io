@@ -1,57 +1,52 @@
-const clickPopUp = document.querySelector("#click-popup");
-const clickDeletePopup = document.querySelector("#click-delete-popup");
-const popup = document.querySelector(".popup");
-const fileInput = document.querySelector("#fileInput");
-const changeAccImgButton = document.querySelector(".change-acc-img");
-const inviteButton = document.querySelector(".invite-link-button-copy");
-const imgChangePopup = document.querySelector("#img-popup");
-const imgDeleteChangePopup = document.querySelector("#close-icon");
-const imgChangePopupBtn = document.querySelector("#img-popup button");
+const clickPopUp = document.querySelector('#click-popup');
+const clickDeletePopup = document.querySelector('#click-delete-popup');
+const popup = document.querySelector('.popup');
+const fileInput = document.querySelector('#fileInput');
+const changeAccImgButton = document.querySelector('.change-acc-img');
+const inviteButton = document.querySelector('.invite-link-button-copy');
+const imgChangePopup = document.querySelector('#img-popup');
+const imgDeleteChangePopup = document.querySelector('#close-icon');
+const imgChangePopupBtn = document.querySelector('#img-popup button');
+const logoutButton = document.getElementById('logoutButton')
 
-clickPopUp.addEventListener("click", () => {
-  popup.style.display = "flex";
-  clickDeletePopup.style.display = "block";
-  clickPopUp.style.display = "none";
-});
+(function handleUI() {
+  clickPopUp.addEventListener('click', () => {
+    popup.style.display = 'flex';
+    clickDeletePopup.style.display = 'block';
+    clickPopUp.style.display = 'none';
+  });
 
-clickDeletePopup.addEventListener("click", () => {
-  popup.style.display = "none";
-  clickDeletePopup.style.display = "none";
-  clickPopUp.style.display = "block";
-});
+  clickDeletePopup.addEventListener('click', () => {
+    popup.style.display = 'none';
+    clickDeletePopup.style.display = 'none';
+    clickPopUp.style.display = 'block';
+  });
 
-changeAccImgButton.addEventListener("click", () => {
-  imgChangePopup.style.display = "flex";
-});
+  changeAccImgButton.addEventListener('click', () => {
+    imgChangePopup.style.display = 'flex';
+  });
 
-imgDeleteChangePopup.addEventListener("click", () => {
-  imgChangePopup.style.display = "none";
-});
+  imgDeleteChangePopup.addEventListener('click', () => {
+    imgChangePopup.style.display = 'none';
+  });
+})();
 
-document.getElementById('logoutButton').addEventListener('click', function() {
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  if (loggedInUser) {
-    loggedInUser.isLoggedIn = false;
-    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-  }
-  window.location.href = 'logre.html';  
-});
 
-window.addEventListener('load', () => {
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  if (!loggedInUser || !loggedInUser.isLoggedIn) {
-    window.location.href = 'logre.html';
-  } else {
-    const userName = loggedInUser.name;
-    const popupMessage = document.getElementById('popupMessage');
-    popupMessage.textContent = userName;
-    if (loggedInUser.image) {
-      document.querySelector(".change-acc-img img").src = loggedInUser.image;
-      document.querySelector("#click-popup img").src = loggedInUser.image;
-      document.querySelector("#click-delete-popup img").src = loggedInUser.image;
-    }
-  }
-});
+// window.addEventListener('load', () => {
+//   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+//   if (!loggedInUser || !loggedInUser.isLoggedIn) {
+//     window.location.href = 'logre.html';
+//   } else {
+//     const userName = loggedInUser.name;
+//     const popupMessage = document.getElementById('popupMessage');
+//     popupMessage.textContent = userName;
+//     if (loggedInUser.image) {
+//       document.querySelector('.change-acc-img img').src = loggedInUser.image;
+//       document.querySelector('#click-popup img').src = loggedInUser.image;
+//       document.querySelector('#click-delete-popup img').src = loggedInUser.image;
+//     }
+//   }
+// });
 
 imgChangePopupBtn.addEventListener('click', () => {
   fileInput.click();
@@ -61,21 +56,23 @@ fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
   if (file) {
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       const imgSrc = e.target.result;
 
       // Retrieve user object from localStorage
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
       // Find the logged in user (assuming email is unique)
-      const loggedInUser = storedUsers.find(user => user.email === JSON.parse(localStorage.getItem('loggedInUser')).email);
+      const loggedInUser = storedUsers.find(
+        (user) => user.email === JSON.parse(localStorage.getItem('loggedInUser')).email
+      );
 
       if (loggedInUser) {
         // Update user's image property
         loggedInUser.image = imgSrc;
 
         // Update user in the storedUsers array
-        const updatedUsers = storedUsers.map(user => {
+        const updatedUsers = storedUsers.map((user) => {
           if (user.email === loggedInUser.email) {
             return loggedInUser;
           } else {
@@ -90,29 +87,29 @@ fileInput.addEventListener('change', (event) => {
         localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
         // Update UI with the new image
-        document.querySelector(".change-acc-img img").src = imgSrc;
-        document.querySelector("#click-popup img").src = imgSrc;
-        document.querySelector("#click-delete-popup img").src = imgSrc;
+        document.querySelector('.change-acc-img img').src = imgSrc;
+        document.querySelector('#click-popup img').src = imgSrc;
+        document.querySelector('#click-delete-popup img').src = imgSrc;
       }
     };
     reader.readAsDataURL(file);
   }
 });
 
-inviteButton.addEventListener("mousedown", () => {
-  inviteButton.style.transform = "translateY(3px)";
+inviteButton.addEventListener('mousedown', () => {
+  inviteButton.style.transform = 'translateY(3px)';
 });
 
-inviteButton.addEventListener("mouseup", () => {
-  inviteButton.style.transform = "translateY(-3px)";
+inviteButton.addEventListener('mouseup', () => {
+  inviteButton.style.transform = 'translateY(-3px)';
 });
 
-inviteButton.addEventListener("mouseover", () => {
-  inviteButton.style.transform = "translateY(-3px)";
+inviteButton.addEventListener('mouseover', () => {
+  inviteButton.style.transform = 'translateY(-3px)';
 });
 
-inviteButton.addEventListener("mouseout", () => {
-  inviteButton.style.transform = "translateY(3px)";
+inviteButton.addEventListener('mouseout', () => {
+  inviteButton.style.transform = 'translateY(3px)';
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -121,63 +118,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const followedTab = document.querySelector('.followed-span');
   let allPosts = [];
   let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
-  let currentTab = 'forYou';  // Track the current tab state
+  let currentTab = 'forYou'; // Track the current tab state
 
   fetch('./db/posts.json')
-      .then(response => response.json())
-      .then(data => {
-          allPosts = data;
+    .then((response) => response.json())
+    .then((data) => {
+      allPosts = data;
 
-          // Load followed status from loggedInUser
-          allPosts.forEach(post => {
-              post.followed = loggedInUser.followedPosts && loggedInUser.followedPosts.includes(post.username);
-          });
+      // Load followed status from loggedInUser
+      allPosts.forEach((post) => {
+        post.followed = loggedInUser.followedPosts && loggedInUser.followedPosts.includes(post.username);
+      });
 
-          renderPosts(allPosts);
+      renderPosts(allPosts);
 
-          forYouTab.addEventListener('click', () => {
-              currentTab = 'forYou';  // Update current tab state
-              forYouTab.classList.add('active');
-              followedTab.classList.remove('active');
-              removeNoFollowMessage();
-              renderPosts(allPosts);
-          });
+      forYouTab.addEventListener('click', () => {
+        currentTab = 'forYou'; // Update current tab state
+        forYouTab.classList.add('active');
+        followedTab.classList.remove('active');
+        removeNoFollowMessage();
+        renderPosts(allPosts);
+      });
 
-          followedTab.addEventListener('click', () => {
-              currentTab = 'followed';  // Update current tab state
-              forYouTab.classList.remove('active');
-              followedTab.classList.add('active');
-              const followedPosts = allPosts.filter(post => post.followed);
-              if (followedPosts.length === 0) {
-                  displayNoFollowMessage();
-                  renderPosts([]);  // Render empty array to clear posts
-              } else {
-                  removeNoFollowMessage();
-                  renderPosts(followedPosts);
-              }
-          });
-      })
-      .catch(error => console.error('Error fetching the post data:', error));
+      followedTab.addEventListener('click', () => {
+        currentTab = 'followed'; // Update current tab state
+        forYouTab.classList.remove('active');
+        followedTab.classList.add('active');
+        const followedPosts = allPosts.filter((post) => post.followed);
+        if (followedPosts.length === 0) {
+          displayNoFollowMessage();
+          renderPosts([]); // Render empty array to clear posts
+        } else {
+          removeNoFollowMessage();
+          renderPosts(followedPosts);
+        }
+      });
+    })
+    .catch((error) => console.error('Error fetching the post data:', error));
 
   function renderPosts(posts) {
-      // Remove existing posts
-      const existingPosts = postContainer.querySelectorAll('.post');
-      existingPosts.forEach(post => post.remove());
+    // Remove existing posts
+    const existingPosts = postContainer.querySelectorAll('.post');
+    existingPosts.forEach((post) => post.remove());
 
-      posts.forEach(post => {
-          const postElement = document.createElement('div');
-          postElement.classList.add('post', 'post-container');
-          postElement.style.background = `url(${post.background})`;
-          const supportersHTML = post.supporters.map(supporter => `<img src="${supporter}" alt="Supporter">`).join('');
-          const stickersHTML = Object.values(post.stickers).map(sticker => `<span><img src="${sticker.url}" alt="Sticker"> ${sticker.number}</span>`).join('');
-          const tagsHTML = post.tags.map(tag => `<span>${tag.replace('#', '')}</span>`).join('');
-          let backgroundHTML = '';
-          if (Array.isArray(post.background)) {
-              backgroundHTML = post.background.map(background => `<div class="post-header" style="background-image: url(${background})">`).join('');
-          } else if (typeof post.background === 'string') {
-              backgroundHTML = `<div class="post-header" style="background-image: url(${post.background})">`;
-          }
-          postElement.innerHTML = `
+    posts.forEach((post) => {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post', 'post-container');
+      postElement.style.background = `url(${post.background})`;
+      const supportersHTML = post.supporters.map((supporter) => `<img src="${supporter}" alt="Supporter">`).join('');
+      const stickersHTML = Object.values(post.stickers)
+        .map((sticker) => `<span><img src="${sticker.url}" alt="Sticker"> ${sticker.number}</span>`)
+        .join('');
+      const tagsHTML = post.tags.map((tag) => `<span>${tag.replace('#', '')}</span>`).join('');
+      let backgroundHTML = '';
+      if (Array.isArray(post.background)) {
+        backgroundHTML = post.background
+          .map((background) => `<div class="post-header" style="background-image: url(${background})">`)
+          .join('');
+      } else if (typeof post.background === 'string') {
+        backgroundHTML = `<div class="post-header" style="background-image: url(${post.background})">`;
+      }
+      postElement.innerHTML = `
               <div class="post-header">
                   <div class="post-user-info">
                       <img src="${post.userImg}" alt="User Image">
@@ -188,7 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
                   </div>
                   <div class="post-time-follow">
                       <div class="post-time">${post.timePosted}</div>
-                      <button class="follow-button ${post.followed ? 'followed' : ''}">${post.followed ? 'Followed' : 'Follow'}</button>
+                      <button class="follow-button ${post.followed ? 'followed' : ''}">${
+        post.followed ? 'Followed' : 'Follow'
+      }</button>
                   </div>
               </div>
               <img class="post-img" src="${post.postImg}" alt="Post Image">
@@ -209,63 +212,63 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="icon-1 sticker-icon"><i class="fas fa-sticky-note"></i></span>
               </div>
           `;
-          // <button class="read-more-button">Read Article</button>
-          postContainer.appendChild(postElement);
+      // <button class="read-more-button">Read Article</button>
+      postContainer.appendChild(postElement);
 
-          const followButton = postElement.querySelector('.follow-button');
-          followButton.addEventListener('click', () => {
-            const username = post.username;
-            const isFollowed = followButton.classList.contains('followed');
+      const followButton = postElement.querySelector('.follow-button');
+      followButton.addEventListener('click', () => {
+        const username = post.username;
+        const isFollowed = followButton.classList.contains('followed');
 
-            // Update the followed status in the allPosts array
-            allPosts.forEach(p => {
-              if (p.username === username) {
-                p.followed = !isFollowed;
-              }
-            });
+        // Update the followed status in the allPosts array
+        allPosts.forEach((p) => {
+          if (p.username === username) {
+            p.followed = !isFollowed;
+          }
+        });
 
-            // Update the followed status in the loggedInUser object
-            if (!isFollowed) {
-              loggedInUser.followedPosts = loggedInUser.followedPosts || [];
-              loggedInUser.followedPosts.push(username);
-            } else {
-              loggedInUser.followedPosts = loggedInUser.followedPosts.filter(user => user !== username);
-            }
+        // Update the followed status in the loggedInUser object
+        if (!isFollowed) {
+          loggedInUser.followedPosts = loggedInUser.followedPosts || [];
+          loggedInUser.followedPosts.push(username);
+        } else {
+          loggedInUser.followedPosts = loggedInUser.followedPosts.filter((user) => user !== username);
+        }
 
-            // Save updated loggedInUser to localStorage
-            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+        // Save updated loggedInUser to localStorage
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
-            // Update the UI based on the current tab state
-            if (currentTab === 'followed') {
-              const followedPosts = allPosts.filter(post => post.followed);
-              if (followedPosts.length === 0) {
-                displayNoFollowMessage();
-                renderPosts([]);  // Render empty array to clear posts
-              } else {
-                removeNoFollowMessage();
-                renderPosts(followedPosts);
-              }
-            } else {
-              renderPosts(allPosts);
-            }
-          });
+        // Update the UI based on the current tab state
+        if (currentTab === 'followed') {
+          const followedPosts = allPosts.filter((post) => post.followed);
+          if (followedPosts.length === 0) {
+            displayNoFollowMessage();
+            renderPosts([]); // Render empty array to clear posts
+          } else {
+            removeNoFollowMessage();
+            renderPosts(followedPosts);
+          }
+        } else {
+          renderPosts(allPosts);
+        }
       });
+    });
   }
 
   function displayNoFollowMessage() {
-      if (!postContainer.querySelector('.no-follow')) {
-          const noFollowMessage = document.createElement('div');
-          noFollowMessage.classList.add('no-follow');
-          noFollowMessage.textContent = "You haven't been followed by anyone yet.";
-          postContainer.appendChild(noFollowMessage);
-      }
+    if (!postContainer.querySelector('.no-follow')) {
+      const noFollowMessage = document.createElement('div');
+      noFollowMessage.classList.add('no-follow');
+      noFollowMessage.textContent = "You haven't been followed by anyone yet.";
+      postContainer.appendChild(noFollowMessage);
+    }
   }
 
   function removeNoFollowMessage() {
-      const noFollowMessage = postContainer.querySelector('.no-follow');
-      if (noFollowMessage) {
-          noFollowMessage.remove();
-      }
+    const noFollowMessage = postContainer.querySelector('.no-follow');
+    if (noFollowMessage) {
+      noFollowMessage.remove();
+    }
   }
 });
 
@@ -277,7 +280,7 @@ storePage.addEventListener('click', () => {
   document.querySelector('.main').style.display = 'none';
 });
 
-const logo = document.querySelector(".logo");
+const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
   const store = document.querySelector('.store');
